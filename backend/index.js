@@ -1,10 +1,16 @@
-const express = require('express');
-const app = express();
-const port = 4000; // Port for the backend server
+// eventsphere-backend/index.js
 
-// A simple test route
+const express = require('express');
+const cors = require('cors'); // Import the cors package
+const app = express();
+const port = 4000;
+
+// Use the cors middleware
+app.use(cors()); // This will allow requests from your frontend
+
 app.get('/api', (req, res) => {
-  res.send('Hello from the EventSphere Backend!');
+  // Send a JSON object instead of just a string
+  res.json({ message: 'Hello from the EventSphere Backend!' });
 });
 
 app.listen(port, () => {
